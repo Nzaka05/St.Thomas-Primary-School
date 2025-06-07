@@ -141,13 +141,151 @@
             animation: deliver 0.7s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
+        /* Enhanced Character Animations */
+        #animatedCharacter {
+            position: absolute;
+            transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 10;
+        }
+
+        .walking {
+            animation: walk 0.8s infinite;
+        }
+
+        @keyframes walk {
+            0%, 100% { transform: translateY(0px) rotateZ(0deg); }
+            25% { transform: translateY(-3px) rotateZ(-1deg); }
+            50% { transform: translateY(0px) rotateZ(0deg); }
+            75% { transform: translateY(-3px) rotateZ(1deg); }
+        }
+
+        .bowing {
+            animation: bow 1.5s ease-in-out;
+        }
+
+        @keyframes bow {
+            0% { transform: rotateX(0deg) rotateZ(0deg); }
+            30% { transform: rotateX(45deg) rotateZ(-5deg) translateY(15px); }
+            60% { transform: rotateX(45deg) rotateZ(-5deg) translateY(15px); }
+            100% { transform: rotateX(0deg) rotateZ(0deg) translateY(0px); }
+        }
+
+        .pointing-left {
+            animation: pointLeft 0.8s ease-in-out forwards;
+        }
+
+        .pointing-right {
+            animation: pointRight 0.8s ease-in-out forwards;
+        }
+
+        @keyframes pointLeft {
+            0% { transform: translateX(0) rotateZ(0deg); }
+            100% { transform: translateX(-15px) rotateZ(-10deg); }
+        }
+
+        @keyframes pointRight {
+            0% { transform: translateX(0) rotateZ(0deg); }
+            100% { transform: translateX(15px) rotateZ(10deg); }
+        }
+
+        .excited {
+            animation: excited 0.6s ease-in-out;
+        }
+
+        @keyframes excited {
+            0%, 100% { transform: scale(1) rotateZ(0deg); }
+            25% { transform: scale(1.1) rotateZ(-3deg); }
+            75% { transform: scale(1.1) rotateZ(3deg); }
+        }
+
+        .thank-you-popup {
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            opacity: 0;
+            animation: thankYouPop 2s ease-in-out;
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+            z-index: 20;
+        }
+
+        @keyframes thankYouPop {
+            0% { opacity: 0; transform: translateX(-50%) translateY(20px) scale(0.8); }
+            20% { opacity: 1; transform: translateX(-50%) translateY(0px) scale(1.1); }
+            80% { opacity: 1; transform: translateX(-50%) translateY(0px) scale(1); }
+            100% { opacity: 0; transform: translateX(-50%) translateY(-10px) scale(0.9); }
+        }
+
+        .speech-bubble {
+            position: absolute;
+            top: -80px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 12px 18px;
+            border-radius: 18px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #374151;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            animation: speechBubble 3s ease-in-out;
+            max-width: 200px;
+            text-align: center;
+            z-index: 15;
+        }
+
+        .speech-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 8px solid white;
+        }
+
+        @keyframes speechBubble {
+            0% { opacity: 0; transform: translateX(-50%) translateY(10px) scale(0.8); }
+            15% { opacity: 1; transform: translateX(-50%) translateY(0px) scale(1); }
+            85% { opacity: 1; transform: translateX(-50%) translateY(0px) scale(1); }
+            100% { opacity: 0; transform: translateX(-50%) translateY(-10px) scale(0.8); }
+        }
+
+        .animate-guy {
+            animation: guyPop 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
         @keyframes guyPop {
-            0% { transform: scale(0.8) translateY(40px); opacity: 0; }
-            60% { transform: scale(1.05) translateY(-8px); opacity: 1; }
+            0% { transform: scale(0.3) translateY(60px); opacity: 0; }
+            60% { transform: scale(1.1) translateY(-10px); opacity: 1; }
             100% { transform: scale(1) translateY(0); opacity: 1; }
         }
-        .animate-guy {
-            animation: guyPop 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+
+        .character-container {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+        }
+
+        .button-glow {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.4); }
+            50% { box-shadow: 0 0 30px rgba(59, 130, 246, 0.6); }
         }
     </style>
 </head>
@@ -252,12 +390,11 @@
                 <!-- Contact Form -->
                 <div class="glass-card rounded-xl p-8">
                     <h2 class="text-2xl font-bold text-gray-800 mb-6">Send us a Message</h2>
-                    <form action="https://formsubmit.co/nzakagideon05@gmail.com" method="POST" class="space-y-6" id="contactForm">
-                        <!-- Hidden fields for FormSubmit configuration -->
+                    <form action="https://formsubmit.co/ajax/nzakagideon05@gmail.com" method="POST" class="space-y-6" id="contactForm">
                         <input type="hidden" name="_subject" value="New Contact Form Submission - St. Thomas Junior School">
                         <input type="hidden" name="_captcha" value="false">
                         <input type="hidden" name="_template" value="table">
-                        <input type="hidden" name="_next" value="contact.html">
+                        <input type="hidden" name="_autoresponse" value="Thank you for contacting St. Thomas Junior School! We have received your message and will get back to you as soon as possible. Thank you for visiting our site.">
                         <input type="text" name="_honey" style="display:none">
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -327,25 +464,89 @@
                         </div>
                     </div>
 
-                    <!-- Follow-up Modal with Animated Character -->
+                    <!-- Follow-up Modal with Lifelike Animated Character -->
                     <div id="followUpModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 hidden">
-                        <div class="bg-white rounded-lg shadow-lg p-8 max-w-sm text-center animate-guy relative">
-                            <!-- Simple SVG illustration of a professional person -->
-                            <div class="flex justify-center mb-4">
-                                <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-                                    <circle cx="40" cy="40" r="38" fill="#e0e7ff" />
-                                    <ellipse cx="40" cy="34" rx="16" ry="16" fill="#60a5fa"/>
-                                    <ellipse cx="40" cy="34" rx="12" ry="12" fill="#fff"/>
-                                    <ellipse cx="40" cy="34" rx="8" ry="8" fill="#60a5fa"/>
-                                    <rect x="28" y="50" width="24" height="18" rx="8" fill="#2563eb"/>
-                                    <rect x="34" y="60" width="12" height="6" rx="3" fill="#1e40af"/>
-                                </svg>
+                        <div class="bg-white rounded-lg shadow-lg p-8 max-w-md text-center animate-guy relative">
+                            
+                            <!-- Enhanced Character Container -->
+                            <div class="character-container">
+                                <div id="animatedCharacter" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                    <!-- Detailed Professional Character SVG -->
+                                    <svg width="100" height="100" viewBox="0 0 100 100" fill="none" id="characterSVG">
+                                        <!-- Shadow -->
+                                        <ellipse cx="50" cy="95" rx="25" ry="3" fill="#00000020"/>
+                                        
+                                        <!-- Body -->
+                                        <rect x="40" y="50" width="20" height="35" rx="10" fill="#1e40af"/>
+                                        
+                                        <!-- Head -->
+                                        <circle cx="50" cy="35" r="15" fill="#fbbf24"/>
+                                        
+                                        <!-- Hair -->
+                                        <path d="M35 25 Q50 15 65 25 Q65 20 50 18 Q35 20 35 25" fill="#8b4513"/>
+                                        
+                                        <!-- Eyes -->
+                                        <circle cx="45" cy="32" r="2" fill="#ffffff"/>
+                                        <circle cx="55" cy="32" r="2" fill="#ffffff"/>
+                                        <circle cx="45" cy="32" r="1" fill="#000000"/>
+                                        <circle cx="55" cy="32" r="1" fill="#000000"/>
+                                        
+                                        <!-- Eyebrows -->
+                                        <path d="M42 28 L48 29" stroke="#8b4513" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M52 29 L58 28" stroke="#8b4513" stroke-width="1.5" stroke-linecap="round"/>
+                                        
+                                        <!-- Nose -->
+                                        <ellipse cx="50" cy="37" rx="1" ry="2" fill="#f59e0b"/>
+                                        
+                                        <!-- Mouth -->
+                                        <path d="M47 42 Q50 45 53 42" stroke="#8b4513" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                                        
+                                        <!-- Collar -->
+                                        <path d="M40 50 L45 55 L50 50 L55 55 L60 50" stroke="#ffffff" stroke-width="2" fill="none"/>
+                                        
+                                        <!-- Tie -->
+                                        <polygon points="50,50 52,70 48,70" fill="#dc2626"/>
+                                        <rect x="48" y="48" width="4" height="6" fill="#dc2626"/>
+                                        
+                                        <!-- Left Arm (dynamic) -->
+                                        <g id="leftArm">
+                                            <rect x="32" y="58" width="12" height="6" rx="3" fill="#1e40af" transform="rotate(-10 38 61)"/>
+                                            <circle cx="30" cy="61" r="4" fill="#fbbf24"/>
+                                        </g>
+                                        
+                                        <!-- Right Arm (dynamic) -->
+                                        <g id="rightArm">
+                                            <rect x="56" y="58" width="12" height="6" rx="3" fill="#1e40af" transform="rotate(10 62 61)"/>
+                                            <circle cx="70" cy="61" r="4" fill="#fbbf24"/>
+                                        </g>
+                                        
+                                        <!-- Legs -->
+                                        <rect x="44" y="82" width="5" height="12" rx="2" fill="#1f2937"/>
+                                        <rect x="51" y="82" width="5" height="12" rx="2" fill="#1f2937"/>
+                                        
+                                        <!-- Shoes -->
+                                        <ellipse cx="46.5" cy="96" rx="4" ry="2" fill="#000000"/>
+                                        <ellipse cx="53.5" cy="96" rx="4" ry="2" fill="#000000"/>
+                                        
+                                        <!-- Belt -->
+                                        <rect x="38" y="75" width="24" height="3" fill="#8b4513"/>
+                                        <rect x="48" y="74" width="4" height="5" fill="#fbbf24"/>
+                                    </svg>
+                                </div>
                             </div>
+                            
                             <h3 class="text-xl font-semibold text-gray-800 mb-2">Would you like to return to the homepage or continue exploring?</h3>
                             <p class="mb-6 text-gray-600">You can go back to the main page or keep browsing our site for more information.</p>
+                            
                             <div class="flex justify-center gap-4">
-                                <a href="index.html" aria-label="Go to Homepage" class="btn-primary px-5 py-2 rounded text-white transition-all duration-200 hover:bg-blue-700">Go to Homepage</a>
-                                <button onclick="closeFollowUpModal()" class="px-5 py-2 rounded border border-blue-600 text-blue-600 hover:bg-blue-50 transition-all duration-200">Continue Here</button>
+                                <a href="index.html" id="homepageBtn" aria-label="Go to Homepage" 
+                                   class="btn-primary px-5 py-2 rounded text-white transition-all duration-200 hover:bg-blue-700 relative z-10">
+                                   Go to Homepage
+                                </a>
+                                <button id="continueBtn" onclick="closeFollowUpModal()" 
+                                        class="px-5 py-2 rounded border border-blue-600 text-blue-600 hover:bg-blue-50 transition-all duration-200 relative z-10">
+                                        Continue Here
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -486,15 +687,209 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Form validation and submission
-        const contactForm = document.querySelector('#contactForm');
+        // Advanced Character Animation System
+        class LifelikeCharacter {
+            constructor() {
+                this.character = document.getElementById('animatedCharacter');
+                this.characterSVG = document.getElementById('characterSVG');
+                this.homepageBtn = document.getElementById('homepageBtn');
+                this.continueBtn = document.getElementById('continueBtn');
+                this.isAnimating = false;
+                this.currentPosition = 'center';
+                this.init();
+            }
+
+            init() {
+                // Initial appearance and greeting
+                setTimeout(() => {
+                    this.performGreeting();
+                }, 500);
+
+                // Button interaction listeners
+                this.setupButtonListeners();
+            }
+
+            async performGreeting() {
+                // Initial bow and greeting
+                await this.bow();
+                this.showSpeechBubble("Hello! Thank you for contacting us!");
+                
+                // Wait and then point to homepage
+                setTimeout(() => {
+                    this.walkToButton('homepage');
+                }, 2000);
+            }
+
+            setupButtonListeners() {
+                this.homepageBtn.addEventListener('mouseenter', () => {
+                    if (this.currentPosition !== 'homepage') {
+                        this.walkToButton('homepage');
+                    } else {
+                        this.excitedGesture();
+                    }
+                });
+
+                this.continueBtn.addEventListener('mouseenter', () => {
+                    if (this.currentPosition !== 'continue') {
+                        this.walkToButton('continue');
+                    } else {
+                        this.excitedGesture();
+                    }
+                });
+
+                this.homepageBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.celebrateChoice('homepage');
+                });
+
+                this.continueBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.celebrateChoice('continue');
+                });
+            }
+
+            async walkToButton(target) {
+                if (this.isAnimating) return;
+                this.isAnimating = true;
+
+                // Add walking animation
+                this.character.classList.add('walking');
+                
+                // Move to button position
+                if (target === 'homepage') {
+                    this.character.style.transform = 'translateX(-80px) translateY(-10px)';
+                    this.currentPosition = 'homepage';
+                    this.homepageBtn.classList.add('button-glow');
+                    this.continueBtn.classList.remove('button-glow');
+                } else {
+                    this.character.style.transform = 'translateX(80px) translateY(-10px)';
+                    this.currentPosition = 'continue';
+                    this.continueBtn.classList.add('button-glow');
+                    this.homepageBtn.classList.remove('button-glow');
+                }
+
+                // Wait for walking animation
+                setTimeout(() => {
+                    this.character.classList.remove('walking');
+                    this.pointToButton(target);
+                    this.isAnimating = false;
+                }, 1000);
+            }
+
+            pointToButton(target) {
+                // Point to the appropriate button
+                const rightArm = this.characterSVG.querySelector('#rightArm');
+                if (target === 'homepage') {
+                    rightArm.innerHTML = `
+                        <rect x="56" y="52" width="20" height="6" rx="3" fill="#1e40af" transform="rotate(-20 66 55)"/>
+                        <circle cx="75" cy="50" r="4" fill="#fbbf24"/>
+                    `;
+                    this.character.classList.add('pointing-left');
+                } else {
+                    rightArm.innerHTML = `
+                        <rect x="56" y="52" width="20" height="6" rx="3" fill="#1e40af" transform="rotate(20 66 55)"/>
+                        <circle cx="75" cy="50" r="4" fill="#fbbf24"/>
+                    `;
+                    this.character.classList.add('pointing-right');
+                }
+
+                // Show pointing speech bubble
+                setTimeout(() => {
+                    this.showSpeechBubble(target === 'homepage' ? "How about going home?" : "Or stay and explore more!");
+                }, 200);
+            }
+
+            async bow() {
+                return new Promise(resolve => {
+                    this.character.classList.add('bowing');
+                    setTimeout(() => {
+                        this.character.classList.remove('bowing');
+                        resolve();
+                    }, 1500);
+                });
+            }
+
+            excitedGesture() {
+                this.character.classList.add('excited');
+                setTimeout(() => {
+                    this.character.classList.remove('excited');
+                }, 600);
+            }
+
+            async celebrateChoice(choice) {
+                // Perform celebration bow
+                await this.bow();
+                
+                // Show thank you popup
+                this.showThankYouPopup();
+                
+                // Execute the choice after celebration
+                setTimeout(() => {
+                    if (choice === 'homepage') {
+                        window.location.href = 'index.html';
+                    } else {
+                        closeFollowUpModal();
+                    }
+                }, 2000);
+            }
+
+            showSpeechBubble(text) {
+                // Remove existing speech bubble
+                const existingBubble = this.character.querySelector('.speech-bubble');
+                if (existingBubble) {
+                    existingBubble.remove();
+                }
+
+                // Create new speech bubble
+                const bubble = document.createElement('div');
+                bubble.className = 'speech-bubble';
+                bubble.textContent = text;
+                this.character.appendChild(bubble);
+
+                // Remove bubble after animation
+                setTimeout(() => {
+                    if (bubble.parentNode) {
+                        bubble.remove();
+                    }
+                }, 3000);
+            }
+
+            showThankYouPopup() {
+                // Remove existing popup
+                const existingPopup = this.character.querySelector('.thank-you-popup');
+                if (existingPopup) {
+                    existingPopup.remove();
+                }
+
+                // Create thank you popup
+                const popup = document.createElement('div');
+                popup.className = 'thank-you-popup';
+                popup.innerHTML = '🙏 Thank You!';
+                this.character.appendChild(popup);
+
+                // Remove popup after animation
+                setTimeout(() => {
+                    if (popup.parentNode) {
+                        popup.remove();
+                    }
+                }, 2000);
+            }
+        }
+
+        // Initialize character when modal is shown
+        let characterInstance = null;
+
+        // Form validation and AJAX submission
+        const contactForm = document.getElementById('contactForm');
+        const thankYouModal = document.getElementById('thankYouModal');
+        const followUpModal = document.getElementById('followUpModal');
+
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
 
             // Basic validation
             const requiredFields = this.querySelectorAll('[required]');
             let valid = true;
-
             requiredFields.forEach(field => {
                 if (!field.value.trim()) {
                     valid = false;
@@ -503,7 +898,6 @@
                     field.classList.remove('border-red-500');
                 }
             });
-
             if (!valid) {
                 alert('Please fill in all required fields.');
                 return;
@@ -524,38 +918,53 @@
             submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
             submitButton.disabled = true;
 
-            // Simulate sending, then show submitted, then show thank you modal
-            setTimeout(() => {
-                submitButton.innerHTML = '<i class="fas fa-check-circle text-green-500 mr-2"></i>Submitted';
-            }, 1200);
+            // Prepare form data
+            const formData = new FormData(contactForm);
 
-            setTimeout(() => {
+            fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            })
+            .then(response => {
                 submitButton.innerHTML = originalText;
                 submitButton.disabled = false;
-                showThankYouModal();
-                // Actually submit the form to FormSubmit after showing the modals
-                setTimeout(() => {
-                    contactForm.submit();
-                }, 2200);
-            }, 2000);
+                if (response.ok) {
+                    contactForm.reset();
+                    showThankYouModal();
+                } else {
+                    alert('There was an error sending your message. Please try again.');
+                }
+            })
+            .catch(() => {
+                submitButton.innerHTML = originalText;
+                submitButton.disabled = false;
+                alert('There was an error sending your message. Please try again.');
+            });
         });
 
         function showThankYouModal() {
-            document.getElementById('thankYouModal').classList.remove('hidden');
-            // After 2 seconds, show the follow-up modal
-            setTimeout(() => {
-                closeThankYouModal();
-                showFollowUpModal();
-            }, 2200);
+            thankYouModal.classList.remove('hidden');
         }
+
         function closeThankYouModal() {
-            document.getElementById('thankYouModal').classList.add('hidden');
+            thankYouModal.classList.add('hidden');
+            showFollowUpModal();
         }
+
         function showFollowUpModal() {
-            document.getElementById('followUpModal').classList.remove('hidden');
+            followUpModal.classList.remove('hidden');
+            // Initialize the lifelike character
+            setTimeout(() => {
+                if (!characterInstance) {
+                    characterInstance = new LifelikeCharacter();
+                }
+            }, 300);
         }
+
         function closeFollowUpModal() {
-            document.getElementById('followUpModal').classList.add('hidden');
+            followUpModal.classList.add('hidden');
+            characterInstance = null;
         }
 
         // Smooth scrolling for anchor links
