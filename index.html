@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>St. Thomas Junior School - Modern Educational Excellence</title>
+    <meta name="description" content="Contact St. Thomas Junior School for admissions, programs, or general inquiries. We're here to help!">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS for Homepage with Neon Colors and Glassmorphism */
+        :root {
+            --neon-blue: #00f5ff;
+            --neon-purple: #bf00ff;
+            --neon-pink: #ff10f0;
+            --neon-green: #39ff14;
+            --neon-orange: #ff6600;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        /* Glassmorphism Effect */
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Neon Text Effects */
+        .neon-text {
+            text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue), 0 0 30px var(--neon-blue);
+        }
+
+        .neon-border {
+            border: 2px solid var(--neon-blue);
+            box-shadow: 0 0 20px rgba(0, 245, 255, 0.5);
+        }
+
+        /* Hover Effects */
+        .hover-glow:hover {
+            box-shadow: 0 0 30px rgba(0, 245, 255, 0.7);
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            background: linear-gradient(-45deg, #667eea, #764ba2, #bf00ff, #00f5ff);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23667eea" width="1200" height="600"/><circle fill="%23764ba2" cx="200" cy="150" r="80"/><circle fill="%23bf00ff" cx="800" cy="400" r="100"/><circle fill="%2300f5ff" cx="1000" cy="200" r="60"/></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Navigation */
+        .nav-glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+        }
+
+        /* Pulse Animation */
+        .pulse-neon {
+            animation: pulseNeon 2s infinite;
+        }
+
+        @keyframes pulseNeon {
+            0%, 100% { box-shadow: 0 0 20px rgba(0, 245, 255, 0.5); }
+            50% { box-shadow: 0 0 40px rgba(0, 245, 255, 0.8); }
+        }
+
+        /* Card hover effects */
+        .info-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 245, 255, 0.2);
+        }
+
+        /* Button styles */
+        .btn-neon {
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+            border: none;
+            box-shadow: 0 0 20px rgba(0, 245, 255, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .btn-neon:hover {
+            box-shadow: 0 0 30px rgba(0, 245, 255, 0.8);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="animated-bg">
+    <!-- Navigation -->
+    <nav class="nav-glass fixed w-full z-50 py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="text-white text-2xl font-bold neon-text">
+                <i class="fas fa-graduation-cap mr-2"></i>St. Thomas Junior School
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-white hover:text-blue-300 transition duration-300">Home</a>
+                <a href="about.html" class="text-white hover:text-blue-300 transition duration-300">About</a>
+                <a href="academics.html" class="text-white hover:text-blue-300 transition duration-300">Academics</a>
+                <a href="gallery.html" class="text-white hover:text-blue-300 transition duration-300">Gallery</a>
+                <a href="contact.html" class="text-white hover:text-blue-300 transition duration-300">Contact</a>
+            </div>
+            <div class="md:hidden">
+                <button class="text-white text-2xl" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="md:hidden hidden bg-black bg-opacity-90 mt-4">
+            <div class="px-6 py-4 space-y-4">
+                <a href="index.html" class="block text-white hover:text-blue-300">Home</a>
+                <a href="about.html" class="block text-white hover:text-blue-300">About</a>
+                <a href="academics.html" class="block text-white hover:text-blue-300">Academics</a>
+                <a href="gallery.html" class="block text-white hover:text-blue-300">Gallery</a>
+                <a href="contact.html" class="block text-white hover:text-blue-300">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section min-h-screen flex items-center justify-center text-center text-white">
+        <div class="container mx-auto px-6">
+            <div class="glass rounded-3xl p-12 max-w-4xl mx-auto hover-glow">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 neon-text">
+                    St. Thomas Junior School
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 text-gray-200">
+                    <span id="typed-text"></span>
+                </p>
+                <div class="flex flex-col md:flex-row gap-4 justify-center">
+                    <button class="btn-neon text-white px-8 py-4 rounded-full text-lg font-semibold">
+                        <i class="fas fa-map-marker-alt mr-2"></i>Visit Us Today
+                    </button>
+                    <button class="glass border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover-glow">
+                        <i class="fas fa-phone mr-2"></i>Call Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Info Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-white mb-16 neon-text">
+                Why Choose St. Thomas?
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Excellence Card -->
+                <div class="glass rounded-2xl p-8 text-center info-card transition-all duration-300">
+                    <div class="text-5xl mb-6 neon-text">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Academic Excellence</h3>
+                    <p class="text-gray-200">
+                        Committed to providing quality education with modern teaching methods and experienced faculty.
+                    </p>
+                </div>
+
+                <!-- Innovation Card -->
+                <div class="glass rounded-2xl p-8 text-center info-card transition-all duration-300">
+                    <div class="text-5xl mb-6 neon-text">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Innovation</h3>
+                    <p class="text-gray-200">
+                        Embracing technology and creative learning approaches to prepare students for the future.
+                    </p>
+                </div>
+
+                <!-- Community Card -->
+                <div class="glass rounded-2xl p-8 text-center info-card transition-all duration-300">
+                    <div class="text-5xl mb-6 neon-text">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Community</h3>
+                    <p class="text-gray-200">
+                        Building a supportive learning environment where every student feels valued and inspired.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Info Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="glass rounded-3xl p-12 max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl font-bold text-white mb-12 neon-text">Get In Touch</h2>
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <!-- Phone -->
+                    <div class="text-center">
+                        <div class="text-4xl mb-4 neon-text">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-2">Call Us</h3>
+                        <p class="text-gray-200">+254 700 123 456</p>
+                        <p class="text-gray-200">+254 720 987 654</p>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="text-center">
+                        <div class="text-4xl mb-4 neon-text">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-2">Email Us</h3>
+                        <p class="text-gray-200">info@stthomasjunior.ac.ke</p>
+                        <p class="text-gray-200">admissions@stthomasjunior.ac.ke</p>
+                    </div>
+
+                    <!-- Location -->
+                    <div class="text-center">
+                        <div class="text-4xl mb-4 neon-text">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-2">Visit Us</h3>
+                        <p class="text-gray-200">123 Education Avenue</p>
+                        <p class="text-gray-200">Nairobi, Kenya</p>
+                    </div>
+                </div>
+
+                <!-- CTA Button -->
+                <button class="btn-neon text-white px-12 py-4 rounded-full text-xl font-bold pulse-neon">
+                    <i class="fas fa-calendar-alt mr-2"></i>Schedule A Visit
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div>
+                    <div class="text-5xl font-bold neon-text" id="students-count">0</div>
+                    <div class="text-white mt-2 text-lg">Happy Students</div>
+                </div>
+                <div>
+                    <div class="text-5xl font-bold neon-text" id="awards-count">0</div>
+                    <div class="text-white mt-2 text-lg">Awards Won</div>
+                </div>
+                <div>
+                    <div class="text-5xl font-bold neon-text" id="years-count">0</div>
+                    <div class="text-white mt-2 text-lg">Years of Excellence</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="glass mt-20 py-12">
+        <div class="container mx-auto px-6 text-center">
+            <div class="text-3xl font-bold text-white mb-4 neon-text">
+                <i class="fas fa-graduation-cap mr-2"></i>St. Thomas Junior School
+            </div>
+            <p class="text-gray-200 mb-6">Shaping bright futures through quality education</p>
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="#" class="text-white hover:text-blue-300 text-2xl transition duration-300">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="#" class="text-white hover:text-blue-300 text-2xl transition duration-300">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="text-white hover:text-blue-300 text-2xl transition duration-300">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="text-white hover:text-blue-300 text-2xl transition duration-300">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+            <p class="text-gray-300">&copy; 2024 St. Thomas Junior School. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Chat Button -->
+    <a href="https://wa.me/254700123456?text=Hello%20St.%20Thomas%20Junior%20School,%20I%20would%20like%20to%20inquire%20about..." 
+       target="_blank" class="whatsapp-btn" title="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp text-white text-2xl"></i>
+    </a>
+
+    <!-- Enroll Now Button -->
+    <a href="contact.html" class="fixed bottom-28 right-6 z-50 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-3 rounded-full shadow-lg text-lg font-bold animate-bounce hover:scale-105 transition">
+        <i class="fas fa-user-plus mr-2"></i>Enroll Now
+    </a>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('bg-black', 'bg-opacity-80');
+            } else {
+                nav.classList.remove('bg-black', 'bg-opacity-80');
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.info-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Typing effect for hero section
+        const phrases = [
+            "Nurturing Tomorrow's Leaders with Excellence and Innovation",
+            "Empowering Students for a Brighter Future",
+            "Where Learning Meets Inspiration"
+        ];
+        let phraseIndex = 0, letterIndex = 0, typing = true;
+        const typedText = document.getElementById('typed-text');
+
+        function typeLoop() {
+            if (!typedText) return;
+            if (typing) {
+                if (letterIndex < phrases[phraseIndex].length) {
+                    typedText.textContent += phrases[phraseIndex][letterIndex++];
+                    setTimeout(typeLoop, 50);
+                } else {
+                    typing = false;
+                    setTimeout(typeLoop, 1500);
+                }
+            } else {
+                if (letterIndex > 0) {
+                    typedText.textContent = phrases[phraseIndex].slice(0, --letterIndex);
+                    setTimeout(typeLoop, 25);
+                } else {
+                    typing = true;
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                    setTimeout(typeLoop, 500);
+                }
+            }
+        }
+        typeLoop();
+
+        // Animated counters
+        function animateCounter(id, end, duration) {
+            const el = document.getElementById(id);
+            let start = 0;
+            const step = Math.ceil(end / (duration / 20));
+            const timer = setInterval(() => {
+                start += step;
+                if (start >= end) {
+                    el.textContent = end;
+                    clearInterval(timer);
+                } else {
+                    el.textContent = start;
+                }
+            }, 20);
+        }
+        window.addEventListener('DOMContentLoaded', () => {
+            animateCounter('students-count', 1200, 1200);
+            animateCounter('awards-count', 15, 1200);
+            animateCounter('years-count', 10, 1200);
+        });
+    </script>
+</body>
+</html>
