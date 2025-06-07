@@ -533,7 +533,10 @@
                 submitButton.innerHTML = originalText;
                 submitButton.disabled = false;
                 showThankYouModal();
-                contactForm.reset();
+                // Actually submit the form to FormSubmit after showing the modals
+                setTimeout(() => {
+                    contactForm.submit();
+                }, 2200);
             }, 2000);
         });
 
